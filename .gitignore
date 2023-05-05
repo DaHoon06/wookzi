@@ -1,2 +1,6 @@
 .idea/vcs.xml
 .idea/workspace.xml
+.idea/modules.xml
+
+.idea/.gitignore
+.idea/wookzi.iml
