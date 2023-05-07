@@ -40,4 +40,3 @@ npm i -g @vue/cli
 ```bash
 vue create 프로젝트명
 ```
-
