@@ -1,0 +1,91 @@
+import React, { Component } from 'react';
+
+class LifeCycleSample extends Component {
+    
+    /**
+     * @description
+     * state 라는 Object 객체 생성
+     * 이 객체 안에 number 라는 key에 0을 할당해주고
+     * color 라는 key에 null 값을 할당해줌
+     */
+    state = {
+        number: 0,
+        color: null,
+    }
+
+    myRef = null; // ref를 사용하기 위한 변수 선언
+
+    /**
+     * @description: 기본 생성자 생성
+     * @param {*} props: 상위 컴포넌트 (부모 컴포넌트)로 부터 값을 전달받는 것을 props 라고 함 
+     */
+    constructor(props) {
+        super(props);
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.color !== prevState.color) {
+            return { color: nextProps.color };
+        }
+        return null;
+    }
+
+    componentDidMount() {
+        console.log('componentDidMount');
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('shouldComponentUpdate : ', nextProps, nextState);
+        // 숫자의 마지막 자리가 4면 리렌더링하지 않습니다.
+        return nextProps.number % 10 !== 4;
+    }
+
+    componentWillUnmount() {
+        console.log('componentWillUnmount');
+    }
+
+    handleClick = () => {
+        this.setState({
+            number: this.state.number + 1
+        })
+    }
+
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log('getSnapshotBeforeUpdate');
+        if (prevProps.color !== this.props.color) {
+            return this.myRef.style.color;
+        }
+        return null;
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('componentDidUpdate', prevProps, prevState, snapshot);
+        if (snapshot) {
+            console.log(`업데이트되기 직전 색상 : ${snapshot}`)
+        }
+    }
+
+    render() {
+        console.log('render');
+
+        const style = {
+            color: this.props.color
+        }
+
+        return (
+            <div>
+                <h1 style={style} ref={ref => this.myRef = ref}>
+                    {this.state.number}
+                </h1>
+                <p>color: {this.state.color}</p>
+                <button 
+                    type='button'
+                    onClick={this.handleClick}>
+                    더하기
+                </button>
+            </div>
+        )
+    }
+}
+
+export default LifeCycleSample;
