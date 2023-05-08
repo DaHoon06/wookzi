@@ -14,8 +14,8 @@ class LifeCycleSample extends Component {
    * 자바에서 사용했을 때 전역 변수를 생성하는 것과 동일
    */
   state = {
-      number: 0,
-      color: null,
+    number: 0,
+    color: null,
   }
 
   myRef = null; // ref를 사용하기 위한 변수 선언
