@@ -40,3 +40,18 @@ npm i -g @vue/cli
 ```bash
 vue create 프로젝트명
 ```
+
+<br />
+
+1️⃣ Nuxt 프로젝트 생성 전 Nodejs 설치 여부 체크 및 Vue CLI 설치
+
+2️⃣ Nuxt 설치
+```bash
+npm install -g create-nuxt-app
+```
+
+#### Nuxt 프로젝트 생성
+
+```bash
+npx create-nuxt-app 프로젝트명
+```
