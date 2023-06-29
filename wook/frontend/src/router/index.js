@@ -14,10 +14,12 @@ export const router = createBrowserRouter(
       <Route element={<Navigate to={'/'} />} />
       <Route element={<Main />} index  />
 
-      <Route path={'board'}>
-        <Route element={<Board />} index  />
-        <Route element={<Board />} path={':postId'}  />
-      </Route>
+      {/*<Route path={'board'}>*/}
+      {/*  <Route element={<Board />} index  />*/}
+      {/*  <Route element={<Board />} path={'/test'}  />*/}
+      {/*  <Route element={<Board />} path={':postId'}  />*/}
+      {/*</Route>*/}
+
     </Route>
   )
 )

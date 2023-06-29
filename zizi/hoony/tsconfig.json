@@ -10,12 +10,13 @@
     "strict": true,
     "noEmit": true,
     "experimentalDecorators": true,
+    "typeRoots": ["./types/index.d.ts"],
     "baseUrl": ".",
     "paths": {
       "~/*": ["./*"],
       "@/*": ["./*"]
     },
-    "types": ["@nuxt/types", "@types/node"]
+    "types": ["@types/node","@nuxt/typescript-build","@nuxt/types"]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]
 }
